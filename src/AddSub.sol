@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.12;
 
 contract AddSub {
     function add(uint x, uint y) external pure returns (uint){

@@ -31,4 +31,4 @@ local-node: setup-yarn
 	yarn hardhat node 
 
 deploy:
-	forge create StakeContract --private-key ${PRIVATE_KEY} # --rpc-url 
+	forge create StakeContract --private-key ${PRIVATE_KEY} --rpc-url ${RPC_URL}

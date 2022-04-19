@@ -13,13 +13,19 @@ contract CounterTest is DSTest {
         counter = new Counter();
     }
 
-    function testInc() public {
+    function test_Inc() public {
         assertEq(counter.get(), 0);
         counter.inc();
         assertEq(counter.get(), 1);
     }
 
-    function testDecr() public {
+    function testFail_Inc() public {
+        assertEq(counter.get(), 0);
+        counter.inc();
+        assertEq(counter.get(), 2);
+    }
+
+    function test_Dec() public {
         assertEq(counter.get(), 0);
         counter.inc();
         counter.inc();
@@ -27,9 +33,23 @@ contract CounterTest is DSTest {
         assertEq(counter.get(), 1);
     }
 
-    function testIncByNum(uint num) public {
+    function testFail_Dec() public {
+        assertEq(counter.get(), 0);
+        counter.inc();
+        counter.inc();
+        counter.dec();
+        assertEq(counter.get(), 2);
+    }
+
+    function testFuzz_Inc(uint num) public {
         assertEq(counter.get(), 0);
         counter.incByNum(num);
+        assertEq(counter.get(), num);
+    }
+
+    function testFuzz_Dec(uint num) public {
+        assertEq(counter.get(), 1);
+        counter.decByNum(num);
         assertEq(counter.get(), num);
     }
 }
