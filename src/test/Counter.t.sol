@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.10;
+pragma solidity ^0.8.12;
 
 // import "lib/ds-test/src/test.sol";
 import "ds-test/test.sol";
@@ -33,7 +33,7 @@ contract CounterTest is DSTest {
         assertEq(counter.get(), 1);
     }
 
-    function testFail_Dec() public {
+    function testFail_Dec(uint) public {
         assertEq(counter.get(), 0);
         counter.inc();
         counter.inc();

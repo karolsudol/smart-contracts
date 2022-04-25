@@ -11,23 +11,24 @@ contract AddSubTest is DSTest {
     function setUp() public {
         xy = new AddSub();
     }
+    
 
-    function test_Add() public {
+    function test_Add(uint) public {
         assertEq(xy.add(1,2), 3);
         assertEq(xy.add(1,1), 2);
     }
 
-    function testFail_Add() public {
+    function testFail_Add(uint) public {
         assertEq(xy.add(1,2), 4);
         assertEq(xy.add(1,1), 1);
     }
 
-    function test_Sub() public {
+    function test_Sub(uint) public {
         assertEq(xy.sub(2,1), 1);
         assertEq(xy.sub(1,1), 0);
     }
 
-    function testFail_Sub() public {
+    function testFail_Sub(uint) public {
         assertEq(xy.sub(2,1), 2);
         assertEq(xy.sub(1,1), 2);
     }
