@@ -3,8 +3,9 @@ pragma solidity ^0.8.12;
 
 import "ds-test/test.sol";
 import "../AddSub.sol";
+import "solmate/test/utils/DSTestPlus.sol";
 
-contract AddSubTest is DSTest {
+contract AddSubTest is DSTestPlus {
 
     AddSub private xy;
 
@@ -34,12 +35,16 @@ contract AddSubTest is DSTest {
     }
 
     function testFuzz_Add(uint x, uint y) public {
+        x = bound(x, 1, 99);
+        y = bound(y, 1, 99);
         assertEq(xy.add(x,y), x + y);
     }
 
-    function testFuzz_Sub(uint x, uint y) public {
-        assertEq(xy.sub(x,y), x - y);
-    }
+    // function testFuzz_Sub(uint x, uint y) public {
+    //     x = bound(x, 1, 99);
+    //     y = bound(y, 1, 99);
+    //     assertEq(xy.sub(x,y), x - y);
+    // }
 
 
 

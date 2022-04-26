@@ -27,9 +27,7 @@ contract Counter {
     modifier cap(uint _x) {
         require(_x < 100, "x >= 100");
         _;
-
     }
-
 
     // Function to increment count by 1
     // write , not read func
