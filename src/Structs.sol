@@ -2,11 +2,22 @@
 pragma solidity ^0.8.13;
 
 contract Structs {
+    enum Status {
+        None, 
+        Shipped, 
+        Rejected, 
+        Completed
+    }
+
     struct Car {
         string model;
         uint year;
         address owner;
+        // Status status;
     }
+
+    Status public status;
+    // Order public order;
 
     Car public car;
     Car[] public cars;
