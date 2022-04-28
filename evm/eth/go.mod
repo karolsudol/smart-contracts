@@ -5,6 +5,11 @@ go 1.18
 require github.com/ethereum/go-ethereum v1.10.17
 
 require (
+	github.com/google/uuid v1.2.0 // indirect
+	github.com/rjeczalik/notify v0.9.1 // indirect
+)
+
+require (
 	github.com/StackExchange/wmi v0.0.0-20180116203802-5d049714c4a6 // indirect
 	github.com/btcsuite/btcd/btcec/v2 v2.1.3 // indirect
 	github.com/deckarep/golang-set v1.8.0 // indirect
