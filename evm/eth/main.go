@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"evm/eth/account"
-	"fmt"
+	"math/big"
 	"os"
 
 	log "github.com/sirupsen/logrus"
@@ -41,7 +41,26 @@ func main() {
 		Address: address,
 	}
 
-	fmt.Printf("%+v\n", account)
+	// fmt.Printf("%+v\n", account)
+
+	balanace, err := account.GetWeiBalance(address)
+	if err != nil {
+		log.WithFields(
+			log.Fields{
+				"msg": "balance failed",
+			},
+		).Fatal(err)
+	}
+
+	log.WithFields(
+		log.Fields{
+			"Wei":  balanace.String(),
+			"Gwei": new(big.Int).Div(balanace, new(big.Int).SetInt64(1000000000)).String(),
+			"ETH":  new(big.Int).Div(balanace, new(big.Int).SetInt64(1000000000000000000)).String(),
+		},
+	).Info("balance")
+
+	// fmt.Printf("%+v\n", balanace.String())
 
 }
 

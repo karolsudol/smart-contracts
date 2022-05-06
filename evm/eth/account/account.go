@@ -17,7 +17,7 @@ type Account struct {
 	Address common.Address
 }
 
-func (a Account) Balance(address common.Address) (*big.Int, error) {
+func (a Account) GetWeiBalance(address common.Address) (*big.Int, error) {
 	balance, err := a.Client.BalanceAt(a.Ctx, address, nil)
 	if err != nil {
 		return nil, fmt.Errorf("clinet BalanceAt err: %v", err)
