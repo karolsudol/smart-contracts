@@ -3,6 +3,8 @@ package main
 import (
 	"context"
 	"evm/eth/account"
+	"evm/eth/contracts/hello"
+	"fmt"
 	"math/big"
 	"os"
 
@@ -59,6 +61,19 @@ func main() {
 			"ETH":  new(big.Int).Div(balanace, new(big.Int).SetInt64(1000000000000000000)).String(),
 		},
 	).Info("balance")
+
+	addressHello := common.HexToAddress("0x5fbdb2315678afecb367f032d93f642f64180aa3")
+	instance, err := hello.NewHello(addressHello, clinet)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	helloMsg, err := instance.Hello(nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(helloMsg)
 
 	// fmt.Printf("%+v\n", balanace.String())
 
