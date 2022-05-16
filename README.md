@@ -1,1 +1,1 @@
-# smart-contracts-solidity
+# smart-contracts
