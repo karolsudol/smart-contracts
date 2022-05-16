@@ -75,17 +75,13 @@ func main() {
 
 	fmt.Println(helloMsg)
 
+	result, err := instance.Greet(nil, "booha")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(string(result[:]))
+
 	// fmt.Printf("%+v\n", balanace.String())
 
 }
-
-// Instantiate the contract and display its name
-// token, err := NewToken(common.HexToAddress("0x21e6fc92f93c8a1bb41e2be64b4e1f88a54d3576"), conn)
-// if err != nil {
-// 	log.Fatalf("Failed to instantiate a Token contract: %v", err)
-// }
-// name, err := token.Name(nil)
-// if err != nil {
-// 	log.Fatalf("Failed to retrieve token name: %v", err)
-// }
-// fmt.Println("Token name:", name)
