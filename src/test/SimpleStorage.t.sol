@@ -2,7 +2,8 @@
 
 pragma solidity ^0.8.12;
 
-import "/ds-test/test.sol";
+// import "/ds-test/test.sol";
+import "../../lib/ds-test/src/test.sol";
 import "../SimpleStorage.sol";
 
 interface VM {
