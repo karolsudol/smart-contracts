@@ -5,6 +5,7 @@ rm -rf .gitmodules && rm -rf .git/modules/* && rm -rf lib && touch .gitmodules &
 forge install dapphub/ds-test 
 forge install OpenZeppelin/openzeppelin-contracts
 forge update
+ 
 nix-env -f https://github.com/dapphub/dapptools/archive/master.tar.gz -iA solc-static-versions.solc_0_8_10
 forge clean && forge build --optimize --optimize-runs 1000000
 make: Leaving directory '/home/karolsudol/DLT/smart-contracts'
